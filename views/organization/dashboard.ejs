@@ -1,0 +1,44 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <br>
+        <h1 class="text-center">Your Dashboard</h1>
+        <div class="card">
+            <div class="card-body">
+                <% if(organization.approved){ %>
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-2">
+                        <a class="btn btn-primary" href="/organization/dashboard/addannouncement"> Announce Something </a>
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-2">
+                        <a class="btn btn-primary" href="/organization/dashboard/adddata"> Add Data </a>
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-2">
+                        <a class="btn btn-primary" href="/organization/dashboard/announcements"> Your Announcements </a>
+                    </div>
+                </div>
+                <br>
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-2">
+                        <a class="btn btn-primary" href="/organization/dashboard/addeddata"> Data You Added </a>
+                    </div>
+                </div>
+                <% } else { %>
+                    <% if(!approval) {%>
+                        <h1 class="text-center text-warning">Please verify your account. <a href="/organization/verify"> Verify </a></h1>
+                    <% } else { %>
+                        <h1 class="text-center text-warning">Please wait until Admin Approval</h1>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+<%- include('../includes/footer.ejs') %>

@@ -1,0 +1,33 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <h1 class="text-center">
+            Organization Verification
+        </h1>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action= "/organization/verify" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="UserAddress" class="form-label">Organization Address</label>
+                                <input type="text" class="form-control" id="UserAddress" name="orgaddress" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="UserTel" class="form-label">Telephone</label>
+                                <input type="text" class="form-control" id="UserTel" name="telephone" minlength="10" maxlength="16" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="UserDoc" class="form-label">Supporting Document</label>
+                                <input type="file" class="form-control" id="UserDoc" name="docs_url" accept="image/*" required/>
+                            </div>
+                            <button type="submit" class="btn btn-primary"> Request Verification </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+<%- include('../includes/footer.ejs') %>

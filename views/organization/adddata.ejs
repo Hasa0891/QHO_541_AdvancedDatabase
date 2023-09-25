@@ -1,0 +1,33 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <h1 class="text-center">
+            Add Data
+        </h1>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action= "/organization/dashboard/adddata" >
+                            <div class="mb-3">
+                                <label for="new_case" class="form-label">New Case</label>
+                                <input type="number" class="form-control" id="new_case" name="new_case" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="death" class="form-label">Death</label>
+                                <input type="number" class="form-control" id="death" name="death" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recovered" class="form-label">Recovered</label>
+                                <input type="number" class="form-control" id="recovered" name="recovered" required/>
+                            </div>
+                            <button type="submit" class="btn btn-primary"> Add Data </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+<%- include('../includes/footer.ejs') %>

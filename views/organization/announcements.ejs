@@ -1,0 +1,35 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <br>
+        <h1>Your Announcements</h1>
+        <div class="card">
+            <div class="card-body">
+               <% if(anns.length > 0){ %> 
+                <% for (ann of anns) { %>
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/photos/<%= ann.featured_url %>" class="img-fluid rounded-start" alt="<%=ann.title %>">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= ann.title %></h5>
+                                <p class="card-text text-truncate"><%= ann.content %></p>
+                                <p class="card-text"><small class="text-body-secondary"><%= ann.publicationDate %></small></p>
+                                <a href="/organization/dashboard/announcement/edit/<%=ann._id%>" class="btn btn-warning">Edit</a>
+                                <a href="/organization/dashboard/announcement/delete/<%=ann._id%>" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+               <% } else { %>
+                    <h1 class="text-warning">Nothing is announced by You.</h1>
+               <% } %>
+            </div>
+        </div>
+    </div>
+<%- include('../includes/footer.ejs') %>

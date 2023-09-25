@@ -1,0 +1,43 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <br>
+        <h1>Data You Added</h1>
+        <div class="card">
+            <div class="card-body">
+               <% if(pandata.length > 0){ %> 
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">New Case</th>
+                            <th scope="col">Death</th>
+                            <th scope="col">Recovered</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                <% for (data of pandata) { %>
+                    <tr>
+                        <td> <%= data.datestr %></td>
+                        <td> <%= data.country %></td>
+                        <td> <%= data.new_case %></td>
+                        <td> <%= data.death %></td>
+                        <td> <%= data.recovered %></td>
+                        <td><a class="btn btn-warning" href="/organization/dashboard/addeddata/edit/<%=data._id%>">Edit</a></td>
+                        <td><a class="btn btn-danger" href="/organization/dashboard/addeddata/delete/<%=data._id%>">Delete</a></td>
+                    </tr>
+               <% } %>
+                        </tbody>
+                      </table>
+               <% } else { %>
+                    <h1 class="text-warning">Nothing is Added by You.</h1>
+               <% } %>
+            </div>
+        </div>
+    </div>
+<%- include('../includes/footer.ejs') %>
