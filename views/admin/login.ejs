@@ -1,0 +1,29 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <h1 class="text-center">
+            Admin Login 
+        </h1>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action= "/admin/login" >
+                            <div class="mb-3">
+                                <label for="AdminName" class="form-label">Admin Username</label>
+                                <input type="text" class="form-control" id="AdminName" name="username" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="AdminPass" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="AdminPass" name="password" required/>
+                            </div>
+                            <button type="submit" class="btn btn-primary"> Login </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+<%- include('../includes/footer.ejs') %>

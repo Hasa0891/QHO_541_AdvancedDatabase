@@ -1,0 +1,48 @@
+<%- include('../includes/header.ejs') %>
+</head>
+<body>
+<%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <br>
+        <h1 class="text-center">Admin Dashboard(<a href="/admin/logout">Logout</a>) </h1>
+        <div class="card">
+            <div class="card-body">
+                <% if(approvals.length > 0){ %>
+                <h3>Approval List</h3>
+                    <% for (ap of approvals) { %> 
+                        <div class="accordion" id="approvalAccordian">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <%= ap.org.name %>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#approvalAccordian">
+                                    <div class="accordion-body">
+                                        <div class="card" style="width: 100%;">
+                                            <img src="/photos/<%=ap.approval.docs_url%>" class="card-img-top" alt="Support Doc">
+                                            <div class="card-body">
+                                              <h5 class="card-title">Supporting Document</h5>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                              <li class="list-group-item">Country: <%= ap.approval.country %></li>
+                                              <li class="list-group-item">Address: <%= ap.approval.address %></li>
+                                              <li class="list-group-item">Telephone: <%= ap.approval.telephone %></li>
+                                            </ul>
+                                            <div class="card-body text-center">
+                                              <a href="/admin/approve/<%=ap.org._id%>" class="btn btn-success">Approve</a>
+                                              <a href="/admin/decline/<%=ap.org._id%>" class="btn btn-danger">Decline</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+               <% } else { %>
+                    <h1 class="text-center text-warning">None to Approve.</h1>
+                <% } %>
+            </div>
+        </div>
+    </div>
+<%- include('../includes/footer.ejs') %>
