@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  database:
+    image: mongo
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rootuser
+      MONGO_INITDB_ROOT_PASSWORD: rootpass
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+    networks:
+      - adv-database
+
+  app:
+    image: node
+    container_name: nodeapp
+    command: bash -c "npm start"
+    ports:
+      - 3000:3000
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    networks:
+      - adv-database
+    depends_on:
+      - database
+
+networks:
+  adv-database:
+    driver: bridge
