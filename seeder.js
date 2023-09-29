@@ -27,10 +27,9 @@ fs.createReadStream(filepath)
         recovered: data.Recovered
     });
     await agg.save();
+    console.log(agg);
   })
   .on('end', async () => {
-    console.log('Finished!');
-
     const uniqueCountries = Array.from(countries).map((jsonString)=>{
         return JSON.parse(jsonString);
     });
@@ -38,5 +37,7 @@ fs.createReadStream(filepath)
     for( data of uniqueCountries){
         let tmp = new Country(data);
         await tmp.save();
+        console.log(tmp);
     }
 });
+console.log('Finished!');
