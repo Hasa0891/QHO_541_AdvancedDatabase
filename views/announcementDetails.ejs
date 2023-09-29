@@ -1,0 +1,25 @@
+<%- include('./includes/header.ejs') %>
+</head>
+<body>
+<%- include('./includes/navigation.ejs') %>
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <div class="card" style="width: 100%;">
+                    <img src="/photos/<%=ann.featured_url%>" class="card-img-top" alt="Featured Image">
+                    <div class="card-body">
+                        <h1 class="card-title"><%= ann.title %></h1>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <b> Announcement By: </b><%= author.name %></li>
+                        <li class="list-group-item"> <b> Date: </b><%= ann.publicationDate %></li>
+                    </ul>
+                    <div class="card-body">
+                        <p class="card-text"><%=ann.content%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('./includes/footer.ejs') %>
