@@ -122,7 +122,6 @@ After creating an account in Render, we can create web services free, the steps 
     ```
     WEB_PORT=80
     MONGODB_URI= Altas MongoDB URI Here
-    authMechanism=DEFAULT
     ADMIN_NAME=admin_email
     ADMIN_PASS=admin_password
     ```
